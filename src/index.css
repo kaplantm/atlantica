@@ -12,21 +12,17 @@ code {
     monospace;
 }
 
-body {
-  background: linear-gradient(
-    60deg,
-    rgba(84, 58, 183, 1) 0%,
-    rgba(0, 172, 193, 1) 100%
-  );
-}
 html,
 body,
 #root {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 #root {
   display: flex;
+  /* overflow: scroll; */
 }
 * {
   box-sizing: border-box;

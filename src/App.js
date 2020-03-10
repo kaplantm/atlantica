@@ -48,27 +48,29 @@ export default function App() {
 
     return (
       <div className="app-container">
-        <Header />
-        <div className="route-container-bg">
-          <Router>
-            <div className="route-container">
-              <ul>{navigationRoutes && renderNavBarRoutes()}</ul>
-              <Route
-                exact
-                path="/"
-                component={curriedPage({
-                  navigationPageUrlConfigMap
-                })}
-              />
-              <Route
-                exact
-                path="/:pageName"
-                component={curriedPage({ navigationPageUrlConfigMap })}
-              />
-            </div>
-          </Router>
-        </div>
         <Waves />
+        <div>
+          <Header />
+          <div className="route-container-bg">
+            <Router>
+              <div className="route-container">
+                <ul>{navigationRoutes && renderNavBarRoutes()}</ul>
+                <Route
+                  exact
+                  path="/"
+                  component={curriedPage({
+                    navigationPageUrlConfigMap
+                  })}
+                />
+                <Route
+                  exact
+                  path="/:pageName"
+                  component={curriedPage({ navigationPageUrlConfigMap })}
+                />
+              </div>
+            </Router>
+          </div>
+        </div>
       </div>
     );
   } else {
