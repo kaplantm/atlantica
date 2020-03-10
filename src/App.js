@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { curriedPage } from "./Page";
 import { NAVIGATION_ROUTES_CONFIG_PATH } from "./constants";
+import { Header } from "./components/Header/Header";
+import "./style.scss";
+import { Waves } from "./components/Waves/Waves";
 
 export default function App() {
   const [navigationRoutes, setNavigationRoutes] = useState();
@@ -34,53 +37,39 @@ export default function App() {
     });
   }
 
-  // function generateRouter() {
-  // const reducer = (accumulator, currentValue) => {
-  //   accumulator[`/${currentValue.file}`] = { title: currentValue.title };
-  //   return accumulator;
-  // };
-  //   const navigationPageUrlConfigMap = navigationRoutes.reduce(reducer, {});
-  //   return (
-  //     <>
-  //     <Route
-  //     exact
-  //     path="/"
-  //     component={curriedPage({ navigationPageUrlConfigMap, match: {url: "/home"} })}
-  //   />
-  //     <Route
-  //       exact
-  //       path="/:pageName"
-  //       component={curriedPage({ navigationPageUrlConfigMap })}
-  //     />
-  //     </>
-  //   );
-  // }
-
-  const reducer = (accumulator, currentValue) => {
-    accumulator[`/${currentValue.file}`] = { title: currentValue.title };
-    return accumulator;
-  };
-
   if (navigationRoutes) {
-    const navigationPageUrlConfigMap = navigationRoutes.reduce(reducer, {});
+    const navigationPageUrlConfigMap = navigationRoutes.reduce(
+      (accumulator, currentValue) => {
+        accumulator[`/${currentValue.file}`] = { title: currentValue.title };
+        return accumulator;
+      },
+      {}
+    );
+
     return (
-      <Router>
-        <div>
-          <ul>{navigationRoutes && renderNavBarRoutes()}</ul>
-          <Route
-            exact
-            path="/"
-            component={curriedPage({
-              navigationPageUrlConfigMap
-            })}
-          />
-          <Route
-            exact
-            path="/:pageName"
-            component={curriedPage({ navigationPageUrlConfigMap })}
-          />
+      <div className="app-container">
+        <Header />
+        <div className="route-container-bg">
+          <Router>
+            <div className="route-container">
+              <ul>{navigationRoutes && renderNavBarRoutes()}</ul>
+              <Route
+                exact
+                path="/"
+                component={curriedPage({
+                  navigationPageUrlConfigMap
+                })}
+              />
+              <Route
+                exact
+                path="/:pageName"
+                component={curriedPage({ navigationPageUrlConfigMap })}
+              />
+            </div>
+          </Router>
         </div>
-      </Router>
+        <Waves />
+      </div>
     );
   } else {
     return <div>error or loading</div>;
