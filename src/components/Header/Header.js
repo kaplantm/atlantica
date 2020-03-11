@@ -1,10 +1,14 @@
 import React from "react";
 import "./style.scss";
+import { NavBar } from "../NavBar/NavBar";
 
-export function Header(props) {
+export function Header({ navigationRoutes }) {
   return (
     <header>
-      <h1>RAD Atlantica</h1>
+      <div>
+        <h1>RAD Atlantica</h1>
+      </div>
+      {navigationRoutes && <NavBar navigationRoutes={navigationRoutes} />}
     </header>
   );
 }

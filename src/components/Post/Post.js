@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown/with-html";
+import "./style.scss";
+import { ASSETS_URL } from "../../constants";
 
 export function Post({ path, published, title, type = "post", page }) {
   const [markdown, setMarkdown] = useState();
@@ -20,10 +22,16 @@ export function Post({ path, published, title, type = "post", page }) {
   }
   return (
     <div>
-      {type}
-      {page ? <h1>TITLE: {title}</h1> : <h3>POST TITLE:{title}</h3>}
-      <span>{published}</span>
-      <ReactMarkdown source={markdown} />
+      <div className="post-container">
+        {title && <h3>POST TITLE:{title}</h3>}
+        <span>{published}</span>
+        <ReactMarkdown source={markdown} escapeHtml={false} />
+      </div>
+      <img
+        width="100"
+        alt="Cuboid cartoon character"
+        src={`${ASSETS_URL}images/squid.svg`}
+      />
     </div>
   );
 }

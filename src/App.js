@@ -27,16 +27,6 @@ export default function App() {
       });
   }, []);
 
-  function renderNavBarRoutes() {
-    return navigationRoutes.map(navigationRoute => {
-      return (
-        <li key={navigationRoute.file}>
-          <Link to={`/${navigationRoute.file}`}>{navigationRoute.title}</Link>
-        </li>
-      );
-    });
-  }
-
   if (navigationRoutes) {
     const navigationPageUrlConfigMap = navigationRoutes.reduce(
       (accumulator, currentValue) => {
@@ -50,11 +40,11 @@ export default function App() {
       <div className="app-container">
         <Waves />
         <div>
-          <Header />
-          <div className="route-container-bg">
-            <Router>
+          <Router>
+            <Header navigationRoutes={navigationRoutes} />
+
+            <div className="route-container-bg">
               <div className="route-container">
-                <ul>{navigationRoutes && renderNavBarRoutes()}</ul>
                 <Route
                   exact
                   path="/"
@@ -68,8 +58,8 @@ export default function App() {
                   component={curriedPage({ navigationPageUrlConfigMap })}
                 />
               </div>
-            </Router>
-          </div>
+            </div>
+          </Router>
         </div>
       </div>
     );

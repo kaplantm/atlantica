@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ASSETS_URL, NEWS_CONFIG_PATH } from "./constants";
-import { Post } from "./Post";
+import { Post } from "./components/Post/Post";
 
 export function NewsFeed({ match, location }) {
   const [newsConfigArray, setNewsConfigArray] = useState();
