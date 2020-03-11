@@ -5,7 +5,7 @@ import { Post } from "../Post/Post";
 import "./style.scss";
 
 export function Page(props) {
-  const { match, sidebarImageUrl } = props;
+  const { match, sidebarImageUrl, loader } = props;
   const fileName = match.url === "/" ? "/home" : match.url;
   const markdownPath = `${ASSETS_URL}pages/${fileName}.md`;
 
@@ -13,9 +13,9 @@ export function Page(props) {
     match.url === "/news" ? (
       <NewsFeed />
     ) : (
-      <Post path={markdownPath} page={true} />
+      <Post path={markdownPath} page={true} loader={loader} />
     );
-  console.log({ sidebarImageUrl });
+
   return (
     <div className="page-container">
       <div className="content-column">{content}</div>

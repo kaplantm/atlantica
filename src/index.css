@@ -33,9 +33,12 @@ a:active {
 a:visited {
   color: hsl(230, 52%, 47%);
 }
-/* 
-rgba(84, 58, 183, 1) 0%,
-rgba(0, 172, 193, 1) 100% */
+
 * {
   box-sizing: border-box;
+}
+
+.loader {
+  padding: 30px;
+  opacity: 0.8;
 }

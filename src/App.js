@@ -47,7 +47,7 @@ export default function App() {
       });
   }
 
-  if (navigationRoutes && sidebarImageUrl) {
+  function getCurriedPageParams() {
     const navigationPageUrlConfigMap = navigationRoutes.reduce(
       (accumulator, currentValue) => {
         accumulator[`/${currentValue.file}`] = { title: currentValue.title };
@@ -56,33 +56,37 @@ export default function App() {
       {}
     );
 
-    const curriedPageParams = { navigationPageUrlConfigMap, sidebarImageUrl };
-    return (
-      <div className="app-container">
-        <Waves />
-        <div>
-          <Router>
-            <Header navigationRoutes={navigationRoutes} />
-
-            <div className="route-container-bg">
-              <div className="route-container">
-                <Route
-                  exact
-                  path="/"
-                  component={curriedPage(curriedPageParams)}
-                />
-                <Route
-                  exact
-                  path="/:pageName"
-                  component={curriedPage(curriedPageParams)}
-                />
-              </div>
-            </div>
-          </Router>
-        </div>
-      </div>
-    );
-  } else {
-    return <div>error or loading</div>;
+    return { navigationPageUrlConfigMap, sidebarImageUrl };
   }
+
+  function renderRoutes() {
+    if (!navigationRoutes || !sidebarImageUrl) {
+      return <Route exact path="/" component={curriedPage({ loader: true })} />;
+    }
+    const curriedPageParams = getCurriedPageParams();
+    return (
+      <>
+        <Route exact path="/" component={curriedPage(curriedPageParams)} />
+        <Route
+          exact
+          path="/:pageName"
+          component={curriedPage(curriedPageParams)}
+        />
+      </>
+    );
+  }
+  return (
+    <div className="app-container">
+      <Waves />
+      <div>
+        <Router>
+          <Header navigationRoutes={navigationRoutes} />
+
+          <div className="route-container-bg">
+            <div className="route-container">{renderRoutes()}</div>
+          </div>
+        </Router>
+      </div>
+    </div>
+  );
 }
