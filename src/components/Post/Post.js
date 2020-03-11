@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown/with-html";
 import "./style.scss";
-import { ASSETS_URL } from "../../constants";
 
 export function Post({ path, published, title, type = "post", page }) {
   const [markdown, setMarkdown] = useState();
@@ -27,11 +26,6 @@ export function Post({ path, published, title, type = "post", page }) {
         <span>{published}</span>
         <ReactMarkdown source={markdown} escapeHtml={false} />
       </div>
-      <img
-        width="100"
-        alt="Cuboid cartoon character"
-        src={`${ASSETS_URL}images/squid.svg`}
-      />
     </div>
   );
 }

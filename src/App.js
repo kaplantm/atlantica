@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { curriedPage } from "./Page";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { curriedPage } from "./components/Page/Page";
 import { NAVIGATION_ROUTES_CONFIG_PATH } from "./constants";
 import { Header } from "./components/Header/Header";
 import "./style.scss";

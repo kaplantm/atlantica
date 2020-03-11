@@ -3,12 +3,13 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   background: linear-gradient(
     60deg,
-    rgba(84, 58, 183, 1) 0%,
-    rgba(0, 172, 193, 1) 100%
+    hsl(252, 52%, 47%) 0%,
+    hsl(187, 100%, 38%) 100%
   );
 
   .route-container-bg {
@@ -17,20 +18,9 @@
     flex: 1;
 
     .route-container {
-      background: linear-gradient(
-        180deg,
-        hsla(0, 0%, 100%, 0.75) 0%,
-        hsla(0, 0%, 100%, 0.96) 50%
-      );
-
-      border-radius: 5px;
-      padding: 20px;
-      width: 80%;
-      margin: 60px auto 100px auto;
-
-      -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.3);
-      box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.3);
+      overflow-x: scroll;
+      display: flex;
+      flex: 1;
     }
   }
 }
