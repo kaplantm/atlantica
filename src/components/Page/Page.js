@@ -5,7 +5,7 @@ import { Post } from "../Post/Post";
 import "./style.scss";
 
 export function Page(props) {
-  const { match } = props;
+  const { match, sidebarImageUrl } = props;
   const fileName = match.url === "/" ? "/home" : match.url;
   const markdownPath = `${ASSETS_URL}pages/${fileName}.md`;
 
@@ -15,23 +15,13 @@ export function Page(props) {
     ) : (
       <Post path={markdownPath} page={true} />
     );
-
-  const randomImageList = ["squid", "pig", "chick"];
-  const randomImageName =
-    randomImageList[Math.floor(Math.random() * randomImageList.length)];
-
+  console.log({ sidebarImageUrl });
   return (
     <div className="page-container">
       <div className="content-column">{content}</div>
 
       <div className="fun-column">
-        {
-          <img
-            className="swing"
-            alt="Cute cuboid cartoon animal"
-            src={`${ASSETS_URL}images/${randomImageName}.svg`}
-          />
-        }
+        {<img className="swing" alt="Random Cartoon" src={sidebarImageUrl} />}
       </div>
     </div>
   );

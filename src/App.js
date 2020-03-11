@@ -1,33 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { curriedPage } from "./components/Page/Page";
-import { NAVIGATION_ROUTES_CONFIG_PATH } from "./constants";
+import {
+  NAVIGATION_ROUTES_CONFIG_PATH,
+  SIDEBAR_CONFIG_PATH,
+  ASSETS_URL
+} from "./constants";
 import { Header } from "./components/Header/Header";
 import "./style.scss";
 import { Waves } from "./components/Waves/Waves";
 
 export default function App() {
   const [navigationRoutes, setNavigationRoutes] = useState();
-  const [error, setError] = useState();
+  const [sidebarImageUrl, setSidebarImageUrl] = useState();
 
   useEffect(() => {
-    fetch(NAVIGATION_ROUTES_CONFIG_PATH)
+    fetchNavigationData();
+    fetchSideBarImage();
+  }, []);
+
+  async function fetchNavigationData() {
+    await fetch(NAVIGATION_ROUTES_CONFIG_PATH)
       .then(response => {
         return response.text();
       })
       .then((data = {}) => {
         try {
-          console.log(data);
           setNavigationRoutes(JSON.parse(data).navigation);
         } catch (e) {
           console.log(e);
-          // TODO: error renderer
-          setError("Failed to Load Navigation Config");
         }
       });
-  }, []);
+  }
+  async function fetchSideBarImage() {
+    await fetch(SIDEBAR_CONFIG_PATH)
+      .then(response => {
+        return response.text();
+      })
+      .then((data = {}) => {
+        try {
+          const images = JSON.parse(data).sidebar.images;
+          const randomImage = images[Math.floor(Math.random() * images.length)];
 
-  if (navigationRoutes) {
+          setSidebarImageUrl(`${ASSETS_URL}images/${randomImage}`);
+        } catch (e) {}
+      });
+  }
+
+  if (navigationRoutes && sidebarImageUrl) {
     const navigationPageUrlConfigMap = navigationRoutes.reduce(
       (accumulator, currentValue) => {
         accumulator[`/${currentValue.file}`] = { title: currentValue.title };
@@ -36,6 +56,7 @@ export default function App() {
       {}
     );
 
+    const curriedPageParams = { navigationPageUrlConfigMap, sidebarImageUrl };
     return (
       <div className="app-container">
         <Waves />
@@ -48,14 +69,12 @@ export default function App() {
                 <Route
                   exact
                   path="/"
-                  component={curriedPage({
-                    navigationPageUrlConfigMap
-                  })}
+                  component={curriedPage(curriedPageParams)}
                 />
                 <Route
                   exact
                   path="/:pageName"
-                  component={curriedPage({ navigationPageUrlConfigMap })}
+                  component={curriedPage(curriedPageParams)}
                 />
               </div>
             </div>
