@@ -37,8 +37,8 @@ export function Post({ path, published, title, type = "post", page, loader }) {
   return (
     <div>
       <div className={`post-container ${type}`}>
-        <div class="post-header">
-          <span class="published">{published}</span>
+        <div className="post-header">
+          <span className="published">{published}</span>
           {title && (
             <h3 className={`${published && "small-top-margin"}`}>{title}</h3>
           )}
