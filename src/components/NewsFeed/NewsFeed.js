@@ -23,7 +23,7 @@ export function NewsFeed({ only, useOnly }) {
   function fetchNews() {
     return newsConfigArray.map((newsConfig = {}) => {
       const { type, file, title, published } = newsConfig;
-
+      console.log({ useOnly });
       if (useOnly && file !== only) {
         return null;
       }

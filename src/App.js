@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import { curriedPage } from "./components/Page/Page";
 import {
   NAVIGATION_ROUTES_CONFIG_PATH,
@@ -79,7 +79,7 @@ export default function App() {
     <div className="app-container">
       <Waves />
       <div>
-        <Router>
+        <Router basename="/">
           <Header navigationRoutes={navigationRoutes} />
 
           <div className="route-container-bg">

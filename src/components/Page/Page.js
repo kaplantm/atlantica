@@ -26,7 +26,7 @@ export function Page(props) {
       });
   }
 
-  const isHome = match.url === "/home";
+  const isHome = match.url === "/home" || match.url === "/";
   const isNews = match.url === "/news";
 
   if (isHome) {
@@ -37,7 +37,7 @@ export function Page(props) {
     return (
       <>
         {(isNews || isHome) && (
-          <NewsFeed useOnly={true} only={hightlightNewsPost} />
+          <NewsFeed useOnly={isHome} only={hightlightNewsPost} />
         )}
         {!isNews && <Post path={markdownPath} page={true} loader={loader} />}
       </>
