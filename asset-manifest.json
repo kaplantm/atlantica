@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/atlantica/static/css/main.0aaec89d.chunk.css",
+    "main.js": "/atlantica/static/js/main.480e2fe1.chunk.js",
+    "main.js.map": "/atlantica/static/js/main.480e2fe1.chunk.js.map",
+    "runtime-main.js": "/atlantica/static/js/runtime-main.72acabfe.js",
+    "runtime-main.js.map": "/atlantica/static/js/runtime-main.72acabfe.js.map",
+    "static/js/2.05f09ad2.chunk.js": "/atlantica/static/js/2.05f09ad2.chunk.js",
+    "static/js/2.05f09ad2.chunk.js.map": "/atlantica/static/js/2.05f09ad2.chunk.js.map",
+    "index.html": "/atlantica/index.html",
+    "precache-manifest.70eb23432215aa7cd3cea65e60d48c58.js": "/atlantica/precache-manifest.70eb23432215aa7cd3cea65e60d48c58.js",
+    "service-worker.js": "/atlantica/service-worker.js",
+    "static/css/main.0aaec89d.chunk.css.map": "/atlantica/static/css/main.0aaec89d.chunk.css.map",
+    "static/js/2.05f09ad2.chunk.js.LICENSE.txt": "/atlantica/static/js/2.05f09ad2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72acabfe.js",
+    "static/js/2.05f09ad2.chunk.js",
+    "static/css/main.0aaec89d.chunk.css",
+    "static/js/main.480e2fe1.chunk.js"
+  ]
+}
