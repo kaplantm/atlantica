@@ -1,6 +1,7 @@
-export const ASSETS_URL =
-  "https://raw.githubusercontent.com/kaplantm/atlantica-assets/master/";
+// export const ASSETS_URL =
+//   "https://raw.githubusercontent.com/kaplantm/atlantica-assets/master/";
 
+export const ASSETS_URL = "https://small-hobby.s3.amazonaws.com/atlantica/";
 // Use this locally
 // export const ASSETS_URL = "http://127.0.0.1:5501/";
 

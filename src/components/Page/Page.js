@@ -4,9 +4,16 @@ import { NewsFeed } from "../NewsFeed/NewsFeed";
 import { Post } from "../Post/Post";
 import "./style.scss";
 
+function removeSlashFromURL(url) {
+  if (url && url[0] === "/") {
+    return url.substring(1);
+  }
+  return url;
+}
+
 export function Page(props) {
   const { match, sidebarImageUrl, loader } = props;
-  const fileName = match.url === "/" ? "/home" : match.url;
+  const fileName = match.url === "/" ? "home" : removeSlashFromURL(match.url);
   const markdownPath = `${ASSETS_URL}pages/${fileName}.md`;
   const [hightlightNewsPost, setHightlightNewsPost] = useState(undefined);
 
