@@ -9,6 +9,7 @@ import {
 import { Header } from "./components/Header/Header";
 import "./style.scss";
 import { Waves } from "./components/Waves/Waves";
+import { version } from "../package.json";
 
 export default function App() {
   const [navigationRoutes, setNavigationRoutes] = useState();
@@ -87,6 +88,7 @@ export default function App() {
           </div>
         </Router>
       </div>
+      <div class="invisible-metadata">Version: {version}</div>
     </div>
   );
 }
