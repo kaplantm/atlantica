@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d0bca97e180db18c4790ac3d66f5efbc",
+    "revision": "4e277277d7d414af883114f34e96b2c9",
     "url": "/atlantica/index.html"
   },
   {
-    "revision": "326dd6e43659d3367043",
+    "revision": "e951e758ec26ed2f5caa",
     "url": "/atlantica/static/css/main.549ff224.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/atlantica/static/js/2.627991c3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "326dd6e43659d3367043",
-    "url": "/atlantica/static/js/main.1d8ee3ae.chunk.js"
+    "revision": "e951e758ec26ed2f5caa",
+    "url": "/atlantica/static/js/main.9de76cd0.chunk.js"
   },
   {
     "revision": "dbf1c2a998c9602af247",
