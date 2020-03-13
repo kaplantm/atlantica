@@ -40,7 +40,7 @@ export default function App() {
   return (
     <div className="app-container">
       <Waves />
-      <div>
+      <div className="app-container-inner">
         <Router basename="/">
           <Header navigationRoutes={navigation} />
 
