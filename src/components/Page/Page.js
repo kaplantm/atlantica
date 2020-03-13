@@ -33,7 +33,7 @@ export function Page(props) {
     );
   }
   return (
-    <div className="page-container">
+    <div className="page-container" key={`${markdownPath}-page`}>
       <div className="content-column">
         {!isHome && renderContent()}
 
