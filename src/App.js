@@ -1,55 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { curriedPage } from "./components/Page/Page";
-import {
-  NAVIGATION_ROUTES_CONFIG_PATH,
-  SIDEBAR_CONFIG_PATH,
-  ASSETS_URL
-} from "./constants";
 import { Header } from "./components/Header/Header";
 import "./style.scss";
 import { Waves } from "./components/Waves/Waves";
 import { version } from "../package.json";
-
+import { sidebar } from "./configs/sidebar-config.json";
+import { navigation } from "./configs/navigation-config.json";
 export default function App() {
-  const [navigationRoutes, setNavigationRoutes] = useState();
-  const [sidebarImageUrl, setSidebarImageUrl] = useState();
-
-  useEffect(() => {
-    fetchNavigationData();
-    fetchSideBarImage();
-  }, []);
-
-  async function fetchNavigationData() {
-    await fetch(NAVIGATION_ROUTES_CONFIG_PATH)
-      .then(response => {
-        return response.text();
-      })
-      .then((data = {}) => {
-        try {
-          setNavigationRoutes(JSON.parse(data).navigation);
-        } catch (e) {
-          console.log(e);
-        }
-      });
-  }
-  async function fetchSideBarImage() {
-    await fetch(SIDEBAR_CONFIG_PATH)
-      .then(response => {
-        return response.text();
-      })
-      .then((data = {}) => {
-        try {
-          const images = JSON.parse(data).sidebar.images;
-          const randomImage = images[Math.floor(Math.random() * images.length)];
-
-          setSidebarImageUrl(`${ASSETS_URL}images/${randomImage}`);
-        } catch (e) {}
-      });
-  }
+  const sidebarImageUrl = `./assets/images/${
+    sidebar.images[Math.floor(Math.random() * sidebar.images.length)]
+  }`;
 
   function getCurriedPageParams() {
-    const navigationPageUrlConfigMap = navigationRoutes.reduce(
+    const navigationPageUrlConfigMap = navigation.reduce(
       (accumulator, currentValue) => {
         accumulator[`/${currentValue.file}`] = { title: currentValue.title };
         return accumulator;
@@ -61,9 +25,6 @@ export default function App() {
   }
 
   function renderRoutes() {
-    if (!navigationRoutes || !sidebarImageUrl) {
-      return <Route exact path="/" component={curriedPage({ loader: true })} />;
-    }
     const curriedPageParams = getCurriedPageParams();
     return (
       <>
@@ -81,14 +42,14 @@ export default function App() {
       <Waves />
       <div>
         <Router basename="/">
-          <Header navigationRoutes={navigationRoutes} />
+          <Header navigationRoutes={navigation} />
 
           <div className="route-container-bg">
             <div className="route-container">{renderRoutes()}</div>
           </div>
         </Router>
       </div>
-      <div class="invisible-metadata">Version: {version}</div>
+      <div className="invisible-metadata">Version: {version}</div>
     </div>
   );
 }

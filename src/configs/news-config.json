@@ -1,0 +1,21 @@
+{
+  "news": [
+    {
+      "file": "we-moved",
+      "published": "3/10/2020",
+      "title": "We Moved",
+      "type": "notice"
+    },
+    {
+      "file": "rad-2-live",
+      "published": "3/2/2020",
+      "title": " Rad 3 is live!"
+    },
+    {
+      "file": "server-reset",
+      "published": "2/21/2020",
+      "title": "Upcoming server reset",
+      "type": "alert"
+    }
+  ]
+}

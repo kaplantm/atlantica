@@ -1,0 +1,12 @@
+{
+  "navigation": [
+    { "title": "Home", "file": "home" },
+    { "title": "Rules", "file": "rules" },
+    { "title": "News", "file": "news" },
+    {
+      "title": "Donate",
+      "route": "https://www.paypal.com/pools/c/8nfrLk8JoJ",
+      "type": "external"
+    }
+  ]
+}
