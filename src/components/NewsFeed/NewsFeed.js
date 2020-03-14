@@ -1,5 +1,5 @@
 import React from "react";
-import { PAGES_PUBLIC_REL_PATH } from "../../constants";
+import { PAGES_PUBLIC_PATH } from "../../constants";
 import { Post } from "../Post/Post";
 import { news } from "../../configs/news-config.json";
 import "./style.scss";
@@ -13,7 +13,7 @@ export function NewsFeed({ only, useOnly }) {
     return (
       <Post
         published={published}
-        path={`${PAGES_PUBLIC_REL_PATH}/news/${file}.md`}
+        path={`${PAGES_PUBLIC_PATH}/news/${file}.md`}
         type={type}
         title={title}
         key={file}

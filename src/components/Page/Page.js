@@ -1,5 +1,5 @@
 import React from "react";
-import { PAGES_PUBLIC_REL_PATH } from "../../constants";
+import { PAGES_PUBLIC_PATH } from "../../constants";
 import { NewsFeed } from "../NewsFeed/NewsFeed";
 import { Post } from "../Post/Post";
 import { home } from "../../configs/home-config.json";
@@ -16,7 +16,7 @@ function removeSlashFromURL(url) {
 export function Page(props) {
   const { match, sidebarImageUrl, loader } = props;
   const fileName = match.url === "/" ? "home" : removeSlashFromURL(match.url);
-  const markdownPath = `${PAGES_PUBLIC_REL_PATH}/${fileName}.md`;
+  const markdownPath = `${PAGES_PUBLIC_PATH}/${fileName}.md`;
   const hightlightNewsPost = home.hightlightNewsPost || null;
 
   const isHome = match.url === "/home" || match.url === "/";

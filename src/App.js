@@ -7,8 +7,10 @@ import { Waves } from "./components/Waves/Waves";
 import { version } from "../package.json";
 import { sidebar } from "./configs/sidebar-config.json";
 import { navigation } from "./configs/navigation-config.json";
+import { IMAGES_PUBLIC_PATH } from "./constants";
+
 export default function App() {
-  const sidebarImageUrl = `./assets/images/${
+  const sidebarImageUrl = `${IMAGES_PUBLIC_PATH}/${
     sidebar.images[Math.floor(Math.random() * sidebar.images.length)]
   }`;
 

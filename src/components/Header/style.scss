@@ -17,4 +17,16 @@ header {
   @media only screen and (max-width: 600px) {
     flex-direction: column;
   }
+
+  .title-logo {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  img {
+    height: 70px;
+  }
 }
