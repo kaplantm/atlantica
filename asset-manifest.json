@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/atlantica/static/css/main.f6db57b6.chunk.css",
-    "main.js": "/atlantica/static/js/main.bedee665.chunk.js",
-    "main.js.map": "/atlantica/static/js/main.bedee665.chunk.js.map",
-    "runtime-main.js": "/atlantica/static/js/runtime-main.72acabfe.js",
-    "runtime-main.js.map": "/atlantica/static/js/runtime-main.72acabfe.js.map",
-    "static/js/2.72a41abd.chunk.js": "/atlantica/static/js/2.72a41abd.chunk.js",
-    "static/js/2.72a41abd.chunk.js.map": "/atlantica/static/js/2.72a41abd.chunk.js.map",
-    "index.html": "/atlantica/index.html",
-    "precache-manifest.21ea84c8e08b19b3511db4a4d38e5544.js": "/atlantica/precache-manifest.21ea84c8e08b19b3511db4a4d38e5544.js",
-    "service-worker.js": "/atlantica/service-worker.js",
-    "static/css/main.f6db57b6.chunk.css.map": "/atlantica/static/css/main.f6db57b6.chunk.css.map",
-    "static/js/2.72a41abd.chunk.js.LICENSE.txt": "/atlantica/static/js/2.72a41abd.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/atlantica/static/media/logo.a7ccfa45.svg",
-    "static/media/not-found.svg": "/atlantica/static/media/not-found.8677fbe5.svg"
+    "main.css": "/static/css/main.f6db57b6.chunk.css",
+    "main.js": "/static/js/main.02c2cdb6.chunk.js",
+    "main.js.map": "/static/js/main.02c2cdb6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4682008d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4682008d.js.map",
+    "static/js/2.72a41abd.chunk.js": "/static/js/2.72a41abd.chunk.js",
+    "static/js/2.72a41abd.chunk.js.map": "/static/js/2.72a41abd.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.826def0df0d1f79e804d2815f7881189.js": "/precache-manifest.826def0df0d1f79e804d2815f7881189.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.f6db57b6.chunk.css.map": "/static/css/main.f6db57b6.chunk.css.map",
+    "static/js/2.72a41abd.chunk.js.LICENSE.txt": "/static/js/2.72a41abd.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/static/media/logo.a7ccfa45.svg",
+    "static/media/not-found.svg": "/static/media/not-found.8677fbe5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.72acabfe.js",
+    "static/js/runtime-main.4682008d.js",
     "static/js/2.72a41abd.chunk.js",
     "static/css/main.f6db57b6.chunk.css",
-    "static/js/main.bedee665.chunk.js"
+    "static/js/main.02c2cdb6.chunk.js"
   ]
 }
